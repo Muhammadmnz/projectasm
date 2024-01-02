@@ -625,6 +625,39 @@
 		flexSlider();
 	});
 
-	
+	$('button').on('click', function(){
+	var number = getRandomInt(1, 40);
+	if (number < 10) {number = '0'+ number;}
+	$(this).html('<div class="loader-' + number + '"></div> Loading...');
+	console.log('Resize window to change size and color of the button');
+});
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+$(window).resize(function() {
+	$('button').css('color', 'hsl(' + Math.floor((window.innerWidth / 360)*100)  + ', 70%, 70%)');
+});
+
+// script.js
+
+window.addEventListener('load', () => {
+	const loaderContainer = document.querySelector('.loader-container');
+	setTimeout(() => {
+	  loaderContainer.style.display = 'none';
+	}, 3000); // Hide loader after 3 seconds (adjust as needed)
+  });
+
+  
+  function hideLoader() {
+    $('#loading').hide();
+}
+
+$(window).ready(hideLoader);
+
+// Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
+setTimeout(hideLoader, 20 * 1000);
+
 
 })();
