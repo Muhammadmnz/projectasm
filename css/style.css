@@ -3099,14 +3099,4 @@ a:hover, a:focus, a:active {
   }
 }
 
-#loading {
-  background: url(/img/loader.gif) no-repeat center center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 9999999;
-}
-
 
